@@ -74,41 +74,45 @@ router.post('/', function(req, res, next) {
 
   if(type == 'text'){
 
-    switch (text) {
-      case '台北':
-        replycontent = kanpai
-        break;
-      case '新北':
-        replycontent = wang
-        break
-      default:
+    if(text == '台北' || text == '新北'){
+
+      switch (text) {
+        case '台北':
+          replycontent = kanpai
+          break;
+        case '新北':
+          replycontent = wang
+          break
+        default:
+
+      }
+
+      var data = {
+        "replyToken":req.body.events[0].replyToken,
+          "messages":[
+            replycontent
+          ]
+      }
+
+      console.log(data)
+
+      var request = https.request(options, function(response) {
+            console.log('Status: ' + response.statusCode);
+            console.log('Headers: ' + JSON.stringify(response.headers));
+            console.log('Body: ' + JSON.stringify(data));
+            response.setEncoding('utf8');
+            response.on('data', function(body) {
+                console.log('456')
+                console.log(body);
+            });
+        });
+        request.on('error', function(e) {
+            console.log('123')
+            console.log('Request error: ' + e.message);
+        });
+        request.end(JSON.stringify(data))
 
     }
-
-    var data = {
-      "replyToken":req.body.events[0].replyToken,
-        "messages":[
-          replycontent
-        ]
-    }
-
-    console.log(data)
-
-    var request = https.request(options, function(response) {
-          console.log('Status: ' + response.statusCode);
-          console.log('Headers: ' + JSON.stringify(response.headers));
-          console.log('Body: ' + JSON.stringify(data));
-          response.setEncoding('utf8');
-          response.on('data', function(body) {
-              console.log('456')
-              console.log(body);
-          });
-      });
-      request.on('error', function(e) {
-          console.log('123')
-          console.log('Request error: ' + e.message);
-      });
-      request.end(JSON.stringify(data))
 
   }
 
