@@ -119,8 +119,8 @@ router.post('/', function(req, res, next) {
           break
         case '中午':
           replycontent = {
-            "type": lunch[Math.floor(Math.random()*lunch.length)],
-            "text": "Hello, world"
+            "type": "text",
+            "text": lunch[Math.floor(Math.random()*lunch.length)]
           }
           break
         default:
