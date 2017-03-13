@@ -97,7 +97,7 @@ var wang = {
     ]
   }
 
-var lunch = ['五牛', '越南', '古早味', '八方', '大呼過癮', '煲飯', '小廚房', '']
+var lunch = ['五牛', '越南', '古早味', '八方', '大呼過癮', '煲飯', '小廚房', '韋安']
 
 router.post('/', function(req, res, next) {
   console.log(req.body.events[0]);
@@ -126,7 +126,7 @@ router.post('/', function(req, res, next) {
         case '@':
           replycontent = {
             "type": "text"
-            "text": lunch
+            "text": lunch.toString()
           }
           break
         default:
