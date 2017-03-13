@@ -125,7 +125,7 @@ router.post('/', function(req, res, next) {
           break
         case '@':
           replycontent = {
-            "type": "text"
+            "type": "text",
             "text": lunch.toString()
           }
           break
