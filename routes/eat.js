@@ -106,7 +106,7 @@ router.post('/', function(req, res, next) {
 
   if(type == 'text'){
 
-    if(text == '台北' || text == '新北'){
+    if(text == '台北' || text == '新北' || text == '中午'){
 
       switch (text) {
         case '台北':
