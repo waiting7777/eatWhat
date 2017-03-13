@@ -80,18 +80,18 @@ var wang = {
             "area": {
                 "x": 0,
                 "y": 0,
-                "width": 520,
-                "height": 1040
+                "width": 598,
+                "height": 200
             }
         },
         {
             "type": "message",
             "text": "五牛牛肉麵",
             "area": {
-                "x": 520,
-                "y": 0,
-                "width": 520,
-                "height": 1040
+                "x": 0,
+                "y": 600,
+                "width": 598,
+                "height": 200
             }
         }
     ]
