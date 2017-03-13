@@ -108,7 +108,7 @@ router.post('/', function(req, res, next) {
 
   if(type == 'text'){
 
-    if(text == '台北' || text == '新北' || text == '中午' || test == '@'){
+    if(text == '台北' || text == '新北' || text == '中午' || test == '#'){
 
       switch (text) {
         case '台北':
@@ -123,7 +123,7 @@ router.post('/', function(req, res, next) {
             "text": lunch[Math.floor(Math.random()*lunch.length)]
           }
           break
-        case '@':
+        case '#':
           replycontent = {
             "type": "text",
             "text": lunch.toString()
