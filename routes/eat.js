@@ -36,6 +36,8 @@ router.post('/', function(req, res, next) {
       ]
   }
 
+  console.log(data)
+
   var request = https.request(options, function(response) {
         console.log('Status: ' + response.statusCode);
         console.log('Headers: ' + JSON.stringify(response.headers));
@@ -46,10 +48,10 @@ router.post('/', function(req, res, next) {
         });
     });
     request.on('error', function(e) {
+        console.log('123')
         console.log('Request error: ' + e.message);
     });
-    request.write(JSON.stringify(data))
-    request.end();
+    request.end(JSON.stringify(data))
 
   res.send('respond with a resource');
 });
