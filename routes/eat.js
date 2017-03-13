@@ -51,11 +51,11 @@ var wang = {
       "title": "王品牛排",
       "text": "王品獨具中式口味的牛排，以特殊佐料醃浸兩天兩夜，再250℃烤箱慢火烘烤一個半小時，以高溫瓷盤盛裝，保持牛排的香嫩風味。",
       "actions": [
-          {
-            "type": "postback",
-            "label": "Buy",
-            "data": "action=buy&itemid=123"
-          },
+          // {
+          //   "type": "postback",
+          //   "label": "Buy",
+          //   "data": "action=buy&itemid=123"
+          // },
           {
             "type": "uri",
             "label": "餐廳網站",
