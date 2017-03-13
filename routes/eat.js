@@ -97,7 +97,7 @@ var wang = {
     ]
   }
 
-var lunch = ['五牛', '越南', '古早味', '八方', '大呼過癮']
+var lunch = ['五牛', '越南', '古早味', '八方', '大呼過癮', '煲飯', '小廚房', '']
 
 router.post('/', function(req, res, next) {
   console.log(req.body.events[0]);
@@ -108,7 +108,7 @@ router.post('/', function(req, res, next) {
 
   if(type == 'text'){
 
-    if(text == '台北' || text == '新北' || text == '中午'){
+    if(text == '台北' || text == '新北' || text == '中午' || test == '@'){
 
       switch (text) {
         case '台北':
@@ -121,6 +121,12 @@ router.post('/', function(req, res, next) {
           replycontent = {
             "type": "text",
             "text": lunch[Math.floor(Math.random()*lunch.length)]
+          }
+          break
+        case '@':
+          replycontent = {
+            "type": "text"
+            "text": lunch
           }
           break
         default:
