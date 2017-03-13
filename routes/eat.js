@@ -17,3 +17,5 @@ router.post('/', function(req, res, next) {
   console.log(456);
   res.send('respond with a resource');
 });
+
+module.exports = router;
