@@ -20,49 +20,81 @@ router.get('/', function(req, res, next) {
 });
 
 var kanpai = {
-  "type": "template",
-  "altText": "老乾杯",
-  "template": {
-      "type": "buttons",
-      "thumbnailImageUrl": "https://datam.idv.tw/images/kanpai.png",
-      "title": "老乾杯",
-      "text": "老乾杯堅持提供最優質的食材及最頂級的澳洲和牛，全程冷藏熟成。",
-      "actions": [
-          // {
-          //   "type": "postback",
-          //   "label": "Buy",
-          //   "data": "action=buy&itemid=123"
-          // },
-          {
-            "type": "uri",
-            "label": "餐廳網站",
-            "uri": "http://www.kanpaiclassic.tw/"
-          }
-      ]
-    }
+    "type": "template",
+    "altText": "老乾杯",
+    "template": {
+        "type": "buttons",
+        "thumbnailImageUrl": "https://datam.idv.tw/images/kanpai.png",
+        "title": "老乾杯",
+        "text": "老乾杯堅持提供最優質的食材及最頂級的澳洲和牛，全程冷藏熟成。",
+        "actions": [
+            // {
+            //   "type": "postback",
+            //   "label": "Buy",
+            //   "data": "action=buy&itemid=123"
+            // },
+            {
+              "type": "uri",
+              "label": "餐廳網站",
+              "uri": "http://www.kanpaiclassic.tw/"
+            }
+        ]
+      }
   }
 
 var wang = {
-  "type": "template",
-  "altText": "王品牛排",
-  "template": {
-      "type": "buttons",
-      "thumbnailImageUrl": "https://datam.idv.tw/images/wang.jpg",
-      "title": "王品牛排",
-      "text": "王品獨具中式口味的牛排，以特殊佐料醃浸兩天兩夜，再250℃烤箱慢火烘烤一個半小時，以高溫瓷盤盛裝，保持牛排的香嫩風味。",
-      "actions": [
-          // {
-          //   "type": "postback",
-          //   "label": "Buy",
-          //   "data": "action=buy&itemid=123"
-          // },
-          {
-            "type": "uri",
-            "label": "餐廳網站",
-            "uri": "http://www.wangsteak.com.tw/index.html"
-          }
-      ]
+    "type": "template",
+    "altText": "王品牛排",
+    "template": {
+        "type": "buttons",
+        "thumbnailImageUrl": "https://datam.idv.tw/images/wang.jpg",
+        "title": "王品牛排",
+        "text": "王品獨具中式口味的牛排，以特殊佐料醃浸兩天兩夜，再250℃烤箱慢火烘烤一個半小時，以高溫瓷盤盛裝，保持牛排的香嫩風味。",
+        "actions": [
+            // {
+            //   "type": "postback",
+            //   "label": "Buy",
+            //   "data": "action=buy&itemid=123"
+            // },
+            {
+              "type": "uri",
+              "label": "餐廳網站",
+              "uri": "http://www.wangsteak.com.tw/index.html"
+            }
+        ]
+    }
   }
+
+  var bull = {
+    "type": "imagemap",
+    "baseUrl": "https://datam.idv.tw/images/bull.jpg",
+    "altText": "五牛牛肉麵",
+    "baseSize": {
+        "height": 800,
+        "width": 598
+    },
+    "actions": [
+        {
+            "type": "uri",
+            "linkUri": "https://www.facebook.com/pages/%E4%BA%94%E7%89%9B%E7%89%9B%E8%82%89%E9%BA%B5%E9%A4%A8%E6%B1%90%E6%AD%A2%E5%BA%97/128301753913911",
+            "area": {
+                "x": 0,
+                "y": 0,
+                "width": 520,
+                "height": 1040
+            }
+        },
+        {
+            "type": "message",
+            "text": "五牛牛肉麵",
+            "area": {
+                "x": 520,
+                "y": 0,
+                "width": 520,
+                "height": 1040
+            }
+        }
+    ]
   }
 
 router.post('/', function(req, res, next) {
@@ -82,6 +114,9 @@ router.post('/', function(req, res, next) {
           break;
         case '新北':
           replycontent = wang
+          break
+        case '中午':
+          replycontent = bull
           break
         default:
 
