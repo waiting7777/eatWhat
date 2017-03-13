@@ -28,11 +28,11 @@ var kanpai = {
       "title": "老乾杯",
       "text": "老乾杯堅持提供最優質的食材及最頂級的澳洲和牛，全程冷藏熟成。",
       "actions": [
-          {
-            "type": "postback",
-            "label": "Buy",
-            "data": "action=buy&itemid=123"
-          },
+          // {
+          //   "type": "postback",
+          //   "label": "Buy",
+          //   "data": "action=buy&itemid=123"
+          // },
           {
             "type": "uri",
             "label": "餐廳網站",
