@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
               "type": "buttons",
               "thumbnailImageUrl": "https://datam.idv.tw/images/kanpai.png",
               "title": "老乾杯",
-              "text": "老乾杯堅持提供最優質的食材及最頂級的澳洲和牛，全程冷藏熟成。採和牛一頭燒，於老乾杯可以品味薄切、厚切、角切及現切肋眼牛排之美味，享受澳洲和牛的各式吃法。由老乾杯總料理長研發出多樣前菜及釜飯等精緻料理；甜點師傅精心開發特製甜點及獨家代理的滿壽泉日本酒，讓蒞臨老乾杯的貴賓皆能享用層次豐富的美食饗宴。",
+              "text": "老乾杯堅持提供最優質的食材及最頂級的澳洲和牛，全程冷藏熟成。",
               "actions": [
                   {
                     "type": "postback",
