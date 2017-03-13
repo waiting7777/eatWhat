@@ -19,54 +19,98 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/', function(req, res, next) {
-  console.log(req.body.events[0]);
-
-  var data = {
-    "replyToken":req.body.events[0].replyToken,
-      "messages":[
-        {
-          "type": "template",
-          "altText": "this is a buttons template",
-          "template": {
-              "type": "buttons",
-              "thumbnailImageUrl": "https://datam.idv.tw/images/kanpai.png",
-              "title": "老乾杯",
-              "text": "老乾杯堅持提供最優質的食材及最頂級的澳洲和牛，全程冷藏熟成。",
-              "actions": [
-                  {
-                    "type": "postback",
-                    "label": "Buy",
-                    "data": "action=buy&itemid=123"
-                  },
-                  {
-                    "type": "uri",
-                    "label": "餐廳網站",
-                    "uri": "http://www.kanpaiclassic.tw/"
-                  }
-              ]
+var kanpai = {
+  "type": "template",
+  "altText": "老乾杯",
+  "template": {
+      "type": "buttons",
+      "thumbnailImageUrl": "https://datam.idv.tw/images/kanpai.png",
+      "title": "老乾杯",
+      "text": "老乾杯堅持提供最優質的食材及最頂級的澳洲和牛，全程冷藏熟成。",
+      "actions": [
+          {
+            "type": "postback",
+            "label": "Buy",
+            "data": "action=buy&itemid=123"
+          },
+          {
+            "type": "uri",
+            "label": "餐廳網站",
+            "uri": "http://www.kanpaiclassic.tw/"
           }
+      ]
+    }
+  }
+
+var wang = {
+  "type": "template",
+  "altText": "王品牛排",
+  "template": {
+      "type": "buttons",
+      "thumbnailImageUrl": "https://datam.idv.tw/images/wang.jpg",
+      "title": "王品牛排",
+      "text": "王品獨具中式口味的牛排，以特殊佐料醃浸兩天兩夜，再250℃烤箱慢火烘烤一個半小時，以高溫瓷盤盛裝，保持牛排的香嫩風味。",
+      "actions": [
+          {
+            "type": "postback",
+            "label": "Buy",
+            "data": "action=buy&itemid=123"
+          },
+          {
+            "type": "uri",
+            "label": "餐廳網站",
+            "uri": "http://www.wangsteak.com.tw/index.html"
           }
       ]
   }
+  }
 
-  console.log(data)
+router.post('/', function(req, res, next) {
+  console.log(req.body.events[0]);
+  var replycontent
 
-  var request = https.request(options, function(response) {
-        console.log('Status: ' + response.statusCode);
-        console.log('Headers: ' + JSON.stringify(response.headers));
-        console.log('Body: ' + JSON.stringify(data));
-        response.setEncoding('utf8');
-        response.on('data', function(body) {
-            console.log('456')
-            console.log(body);
-        });
-    });
-    request.on('error', function(e) {
-        console.log('123')
-        console.log('Request error: ' + e.message);
-    });
-    request.end(JSON.stringify(data))
+  var text = req.body.events[0].message.text
+  var type = req.body.events[0].message.type
+
+  if(type == 'text'){
+
+    switch (text) {
+      case '台北':
+        replycontent = kanpai
+        break;
+      case '新北':
+        replycontent = wang
+        break
+      default:
+
+    }
+
+    var data = {
+      "replyToken":req.body.events[0].replyToken,
+        "messages":[
+          replycontent
+        ]
+    }
+
+    console.log(data)
+
+    var request = https.request(options, function(response) {
+          console.log('Status: ' + response.statusCode);
+          console.log('Headers: ' + JSON.stringify(response.headers));
+          console.log('Body: ' + JSON.stringify(data));
+          response.setEncoding('utf8');
+          response.on('data', function(body) {
+              console.log('456')
+              console.log(body);
+          });
+      });
+      request.on('error', function(e) {
+          console.log('123')
+          console.log('Request error: ' + e.message);
+      });
+      request.end(JSON.stringify(data))
+
+  }
 
   res.send('respond with a resource');
 });
