@@ -97,6 +97,8 @@ var wang = {
     ]
   }
 
+var lunch = ['五牛', '越南', '古早味', '八方', '大呼過癮']
+
 router.post('/', function(req, res, next) {
   console.log(req.body.events[0]);
   var replycontent
@@ -116,7 +118,10 @@ router.post('/', function(req, res, next) {
           replycontent = wang
           break
         case '中午':
-          replycontent = bull
+          replycontent = {
+            "type": lunch[Math.floor(Math.random()*lunch.length)],
+            "text": "Hello, world"
+          }
           break
         default:
 
