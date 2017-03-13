@@ -67,7 +67,7 @@ var wang = {
 
   var bull = {
     "type": "imagemap",
-    "baseUrl": "https://datam.idv.tw/images/bull.jpg",
+    "baseUrl": "https://datam.idv.tw/images/bull",
     "altText": "五牛牛肉麵",
     "baseSize": {
         "height": 800,
