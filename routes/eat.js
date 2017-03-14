@@ -143,10 +143,12 @@ router.post('/', function(req, res, next) {
 
       console.log(data)
 
+
+
       var request = https.request(options, function(response) {
             console.log('Status: ' + response.statusCode);
             console.log('Headers: ' + JSON.stringify(response.headers));
-            console.log('Body: ' + JSON.stringify(data));
+            console.log('Body: ' + JSON.stringify({data}));
             response.setEncoding('utf8');
             response.on('data', function(body) {
                 console.log('456')
