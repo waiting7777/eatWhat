@@ -12,3 +12,8 @@ router.get('/', function(req, res, next) {
     res.send('Error, wrong validation token');
   }
 });
+
+router.post('/', function(req, res, next) {
+  console.log(req)
+  res.send('GOT')
+})
