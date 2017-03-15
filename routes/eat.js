@@ -141,10 +141,7 @@ router.post('/', function(req, res, next) {
                   ]
               }
             }
-          replycontent = {
-            "type": "text",
-            "text": lunch[Math.floor(Math.random()*lunch.length)]
-          }
+          
           break
         case '@':
           replycontent = {
