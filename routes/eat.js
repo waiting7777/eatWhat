@@ -119,19 +119,20 @@ router.post('/', function(req, res, next) {
           break
         case '中午':
         case '吃什麼':
+          var temp = lunch[Math.floor(Math.random()*lunch.length)];
           replycontent = {
               "type": "template",
-              "altText": lunch[Math.floor(Math.random()*lunch.length)],
+              "altText": temp,
               "template": {
                   "type": "buttons",
                   "thumbnailImageUrl": "https://datam.idv.tw/images/lunch.jpg",
-                  "title": lunch[Math.floor(Math.random()*lunch.length)],
+                  "title": temp,
                   "text": "GO GO GO。",
                   "actions": [
                       {
                         "type": "message",
-                        "label": lunch[Math.floor(Math.random()*lunch.length)],
-                        "text": lunch[Math.floor(Math.random()*lunch.length)]
+                        "label": temp,
+                        "text": temp
                       },
                       // {
                       //   "type": "uri",
