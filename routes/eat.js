@@ -128,11 +128,11 @@ router.post('/', function(req, res, next) {
                   "title": lunch[Math.floor(Math.random()*lunch.length)],
                   "text": "GO GO GO。",
                   "actions": [
-                      // {
-                      //   "type": "postback",
-                      //   "label": "Buy",
-                      //   "data": "action=buy&itemid=123"
-                      // },
+                      {
+                        "type": "message",
+                        "label": lunch[Math.floor(Math.random()*lunch.length)],
+                        "text": lunch[Math.floor(Math.random()*lunch.length)]
+                      },
                       // {
                       //   "type": "uri",
                       //   "label": "餐廳網站",
@@ -141,7 +141,7 @@ router.post('/', function(req, res, next) {
                   ]
               }
             }
-          
+
           break
         case '@':
           replycontent = {
