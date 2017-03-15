@@ -120,6 +120,28 @@ router.post('/', function(req, res, next) {
         case '中午':
         case '吃什麼':
           replycontent = {
+              "type": "template",
+              "altText": lunch[Math.floor(Math.random()*lunch.length)],
+              "template": {
+                  "type": "buttons",
+                  "thumbnailImageUrl": "https://datam.idv.tw/images/lunch.jpg",
+                  "title": lunch[Math.floor(Math.random()*lunch.length)],
+                  "text": "GO GO GO。",
+                  "actions": [
+                      // {
+                      //   "type": "postback",
+                      //   "label": "Buy",
+                      //   "data": "action=buy&itemid=123"
+                      // },
+                      // {
+                      //   "type": "uri",
+                      //   "label": "餐廳網站",
+                      //   "uri": "http://www.wangsteak.com.tw/index.html"
+                      // }
+                  ]
+              }
+            }
+          replycontent = {
             "type": "text",
             "text": lunch[Math.floor(Math.random()*lunch.length)]
           }
