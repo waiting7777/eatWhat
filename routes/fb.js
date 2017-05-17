@@ -6,7 +6,7 @@ var request = require('request');
 var options = {
     host : 'graph.facebook.com',
     port : 443,
-    path : '/v2.6/me/messages?access_token=EAAXWlMg1DP0BABZB8WHaVJWFQMZBc0HTzzVinXTJSFOQsDsoCTViNL0HtrawPHluJEi9OBnOxPNpKuNHdaf7Q4qbYg5mN1vVJVui2bUBuVnnZBmOIpgDwjrVKtjZAYycS3NP3422EbgvZBQZCLkOYazcDdosMhYaSBdmCNz61iigZDZD',
+    path : '/v2.6/me/messages?access_token=EAAXWlMg1DP0BAHDBq9ff7TaGYFalLLhtoKmL7DToyDZAO5zKbB8UPYDLRUt4O07gaLaZBfCRtlqUy5ZCDmfQmTTDDvxB2xc1oJHGTXkm6eKJu175A07VE7B5gkRH5qJGaUZCDCJGzFmSVrzn63vTfUZCOL73K3n4J9xKHDBZBYrgZDZD',
     method : 'POST',
     headers : {
         'Content-Type' : 'application/json',
@@ -16,11 +16,10 @@ var options = {
 module.exports = router;
 
 router.get('/', function(req, res, next) {
-  if (req.query['hub.verify_token'] === 'EAAXWlMg1DP0BABZB8WHaVJWFQMZBc0HTzzVinXTJSFOQsDsoCTViNL0HtrawPHluJEi9OBnOxPNpKuNHdaf7Q4qbYg5mN1vVJVui2bUBuVnnZBmOIpgDwjrVKtjZAYycS3NP3422EbgvZBQZCLkOYazcDdosMhYaSBdmCNz61iigZDZD') {
+  if (req.query['hub.verify_token'] === 'EAAXWlMg1DP0BAHDBq9ff7TaGYFalLLhtoKmL7DToyDZAO5zKbB8UPYDLRUt4O07gaLaZBfCRtlqUy5ZCDmfQmTTDDvxB2xc1oJHGTXkm6eKJu175A07VE7B5gkRH5qJGaUZCDCJGzFmSVrzn63vTfUZCOL73K3n4J9xKHDBZBYrgZDZD') {
     res.send(req.query['hub.challenge']);
-  } else {
-    res.send('Error, wrong validation token');
   }
+    res.send('Error, wrong validation token');
 });
 
 router.post('/', function(req, res, next) {
