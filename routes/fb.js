@@ -16,7 +16,7 @@ var options = {
 module.exports = router;
 
 router.get('/', function(req, res, next) {
-  if (req.query['hub.verify_token'] === 'EAAXWlMg1DP0BAHDBq9ff7TaGYFalLLhtoKmL7DToyDZAO5zKbB8UPYDLRUt4O07gaLaZBfCRtlqUy5ZCDmfQmTTDDvxB2xc1oJHGTXkm6eKJu175A07VE7B5gkRH5qJGaUZCDCJGzFmSVrzn63vTfUZCOL73K3n4J9xKHDBZBYrgZDZD') {
+  if (req.query['hub.verify_token'] === 'test') {
     res.send(req.query['hub.challenge']);
   }
     res.send('Error, wrong validation token');
